@@ -2,9 +2,9 @@ package console
 
 import "fmt"
 
-type Context struct {
+type CommandContext struct {
 }
 
-func (c Context) SendMessage(message string) {
+func (c CommandContext) SendMessage(message string) {
 	fmt.Println(message)
 }

@@ -5,7 +5,7 @@ type Arg struct {
 	Args        []string
 }
 
-func (a *Arg) IsSame(arg string) bool {
+func (a *Arg) IsSameCommand(arg string) bool {
 	return a.CommandName == arg
 }
 

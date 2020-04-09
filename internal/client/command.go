@@ -5,13 +5,13 @@ type CommandExecutable interface {
 }
 
 type command struct {
-	Help      *HelpContext
-	arg       string
-	processor func(arg *Arg, ctx CommandContext)
+	Help        *HelpContext
+	commandName string
+	processor   func(arg *Arg, ctx CommandContext)
 }
 
 func (c *command) ShouldExecute(arg *Arg) bool {
-	return arg.IsSame(c.arg)
+	return arg.IsSameCommand(c.commandName)
 }
 
 func (c command) execute(arg *Arg, ctx CommandContext) {
