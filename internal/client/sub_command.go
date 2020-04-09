@@ -10,7 +10,7 @@ func (c *subCommand) ShouldExecute(arg *Arg) bool {
 	return arg.Next().IsSameCommand(c.arg)
 }
 
-func (c subCommand) execute(arg *Arg, ctx CommandContext) {
+func (c *subCommand) execute(arg *Arg, ctx CommandContext) {
 	if !c.ShouldExecute(arg) {
 		return
 	}
