@@ -7,7 +7,7 @@ type subCommand struct {
 }
 
 func (c *subCommand) ShouldExecute(arg *Arg) bool {
-	return arg.IsSame(c.arg)
+	return arg.Next().IsSame(c.arg)
 }
 
 func (c subCommand) execute(arg *Arg, ctx CommandContext) {

@@ -7,10 +7,11 @@ import (
 
 func init() {
 	help := client.HelpContext{
-		Name:            "PingPong!",
+		Name:            "!ping",
 		Description:     "PingPong",
 		ArgsDescription: nil,
 	}
+
 	service.GetCommandCollection().AddCommand(&help, "!ping", func(arg *client.Arg, ctx client.CommandContext) {
 		ctx.SendMessage("pong!")
 	})

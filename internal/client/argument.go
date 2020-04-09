@@ -10,5 +10,11 @@ func (a *Arg) IsSame(arg string) bool {
 }
 
 func (a *Arg) Next() *Arg {
-	return &Arg{CommandName: a.Args[0], Args: a.Args[1:]}
+	var args []string
+	if len(a.Args) > 1 {
+		args = a.Args[1:]
+	} else {
+		args = []string{}
+	}
+	return &Arg{CommandName: a.Args[0], Args: args}
 }

@@ -5,9 +5,8 @@ type CommandCollection struct {
 }
 
 func (c CommandCollection) execute(arg *Arg, ctx CommandContext) {
-	nextArg := arg.Next()
 	for _, v := range c.commands {
-		v.execute(nextArg, ctx)
+		v.execute(arg, ctx)
 	}
 }
 
