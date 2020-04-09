@@ -12,6 +12,5 @@ func main() {
 	c := console.Client{Scanner: bufio.NewScanner(os.Stdin)}
 	for range make([]int, 5) {
 		client.ExecuteCommand(c, service.GetCommandCollection())
-		break
 	}
 }
