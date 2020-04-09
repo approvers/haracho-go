@@ -1,11 +1,11 @@
-package command
+package ping_pong
 
 import (
 	"haracho-go/internal/client"
 	"haracho-go/internal/service"
 )
 
-func init() {
+func Init() {
 	help := client.HelpContext{
 		Name:            "!ping",
 		Description:     "PingPong",
