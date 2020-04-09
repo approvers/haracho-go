@@ -1,5 +1,5 @@
 package client
 
 type CommandParser interface {
-	parse() Command
+	Parse() (*Arg, CommandContext)
 }

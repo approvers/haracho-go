@@ -1,5 +1,17 @@
 package command
 
-type PingPongCommand struct {
-	res string
+import (
+	"haracho-go/internal/client"
+	"haracho-go/internal/service"
+)
+
+func init() {
+	help := client.HelpContext{
+		Name:            "PingPong!",
+		Description:     "PingPong",
+		ArgsDescription: nil,
+	}
+	service.GetCommandCollection().AddCommand(&help, "!ping", func(arg *client.Arg, ctx client.CommandContext) {
+		ctx.SendMessage("pong!")
+	})
 }
