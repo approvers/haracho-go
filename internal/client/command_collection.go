@@ -1,16 +1,18 @@
 package client
 
+import "haracho-go/internal/client/arg"
+
 type CommandCollection struct {
 	commands []CommandExecutable
 }
 
-func (c CommandCollection) execute(arg *Arg, ctx CommandContext) {
+func (c CommandCollection) execute(arg *arg.Arg, ctx CommandContext) {
 	for _, v := range c.commands {
 		v.execute(arg, ctx)
 	}
 }
 
-func (c *CommandCollection) AddCommand(help *HelpContext, arg string, processor func(arg *Arg, ctx CommandContext)) {
+func (c *CommandCollection) AddCommand(help *HelpContext, arg string, processor func(arg *arg.Arg, ctx CommandContext)) {
 	command := &command{
 		Help:        help,
 		commandName: arg,

@@ -3,17 +3,16 @@ package console
 import (
 	"bufio"
 	"haracho-go/internal/client"
+	"haracho-go/internal/client/arg"
 	_ "haracho-go/internal/command"
-	"strings"
 )
 
 type Client struct {
 	Scanner *bufio.Scanner
 }
 
-func (c Client) Parse() (*client.Arg, client.CommandContext) {
+func (c Client) Parse() (*arg.Arg, client.CommandContext) {
 	c.Scanner.Scan()
 	input := c.Scanner.Text()
-	split := strings.Split(input, " ")
-	return &client.Arg{CommandName: split[0], Args: split[1:]}, CommandContext{}
+	return arg.NewArg(input), CommandContext{}
 }

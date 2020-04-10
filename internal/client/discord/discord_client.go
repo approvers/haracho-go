@@ -28,7 +28,7 @@ func (c *Client) Start() {
 	c.session = dg
 
 	dg.AddHandler(func(session *discordgo.Session, create *discordgo.MessageCreate) {
-		parser := Parser{rawMessage: create.Content, ctx: &CommandContext{client: c, channel: create.ChannelID, log: &l}}
+		parser := Parser{message: create.Content, ctx: &CommandContext{client: c, channel: create.ChannelID, log: &l}}
 		client.ExecuteCommand(parser, service.GetCommandCollection())
 	})
 

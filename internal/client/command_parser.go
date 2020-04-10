@@ -1,5 +1,7 @@
 package client
 
+import "haracho-go/internal/client/arg"
+
 type CommandParser interface {
-	Parse() (*Arg, CommandContext)
+	Parse() (*arg.Arg, CommandContext)
 }

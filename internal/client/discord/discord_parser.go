@@ -2,15 +2,14 @@ package discord
 
 import (
 	"haracho-go/internal/client"
-	"strings"
+	"haracho-go/internal/client/arg"
 )
 
 type Parser struct {
-	rawMessage string
-	ctx        client.CommandContext
+	message string
+	ctx     client.CommandContext
 }
 
-func (p Parser) Parse() (*client.Arg, client.CommandContext) {
-	split := strings.Split(p.rawMessage, " ")
-	return &client.Arg{CommandName: split[0], Args: split[1:]}, p.ctx
+func (p Parser) Parse() (*arg.Arg, client.CommandContext) {
+	return arg.NewArg(p.message), p.ctx
 }
