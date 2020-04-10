@@ -4,7 +4,6 @@ import (
 	"bufio"
 	"haracho-go/internal/client"
 	"haracho-go/internal/client/arg"
-	_ "haracho-go/internal/command"
 )
 
 type Client struct {
