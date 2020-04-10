@@ -1,4 +1,4 @@
-package ping_pong
+package pingpong
 
 import (
 	"haracho-go/internal/client"

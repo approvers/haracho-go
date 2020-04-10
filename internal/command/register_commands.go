@@ -1,7 +1,7 @@
 package command
 
-import "haracho-go/internal/command/ping_pong"
+import "haracho-go/internal/command/pingpong"
 
 func RegisterCommands() {
-	ping_pong.Init()
+	pingpong.Init()
 }
