@@ -25,4 +25,4 @@ jobs:
       - name: go build discord client
         run: go build cmd/discord_client/main.go
       - name: go test
-        run: go test -cover
+        run: go test -cover cmd/discord_client/main.go
