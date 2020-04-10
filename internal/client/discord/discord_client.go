@@ -16,7 +16,7 @@ type Client struct {
 	Collection *client.CommandCollection
 }
 
-var l = logger.BasicLogger{Logger: &log.Logger{}}
+var l = logger.BasicLogger{Logger: log.New(os.Stdout, "DiscordClient: ", log.LstdFlags)}
 
 func (c *Client) Start() {
 	dg, err := discordgo.New("Bot " + c.Token)
