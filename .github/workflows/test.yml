@@ -23,6 +23,6 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-go-
       - name: go build discord client
-        runs: go build cmd/discord_client/main.go
+        run: go build cmd/discord_client/main.go
       - name: go test
-        runs: go test -cover
+        run: go test -cover
