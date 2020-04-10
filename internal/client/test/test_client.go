@@ -11,8 +11,15 @@ type Client struct {
 	Collection *client.CommandCollection
 }
 
+func NewClient(builder func(collection *client.CommandCollection)) *Client {
+	collection := new(client.CommandCollection)
+	builder(collection)
+	return &Client{Collection: collection}
+}
+
 func (c *Client) Parse() (*arg.Arg, client.CommandContext) {
 	ctx := new(CommandContext)
+	c.context = ctx
 	return arg.NewArg(c.input), ctx
 }
 
