@@ -4,7 +4,6 @@ import (
 	"github.com/bwmarrin/discordgo"
 	"haracho-go/internal/client"
 	"haracho-go/internal/logger"
-	"haracho-go/internal/service"
 	"log"
 	"os"
 	"os/signal"
@@ -12,8 +11,9 @@ import (
 )
 
 type Client struct {
-	Token   string
-	session *discordgo.Session
+	Token      string
+	session    *discordgo.Session
+	Collection *client.CommandCollection
 }
 
 var l = logger.BasicLogger{Logger: &log.Logger{}}
@@ -29,7 +29,7 @@ func (c *Client) Start() {
 
 	dg.AddHandler(func(session *discordgo.Session, create *discordgo.MessageCreate) {
 		parser := Parser{message: create.Content, ctx: &CommandContext{client: c, channel: create.ChannelID, log: &l}}
-		client.ExecuteCommand(parser, service.GetCommandCollection())
+		client.ExecuteCommand(parser, c.Collection)
 	})
 
 	err = dg.Open()
