@@ -29,3 +29,13 @@ func (c *CommandCollection) AddSubCommands(help *HelpContext, arg string, subCom
 	}
 	c.commands = append(c.commands, command)
 }
+
+func (c *CommandCollection) AddPrefixCommand(help *HelpContext, prefix string, processor func(arg *arg.Arg, ctx CommandContext)) {
+	command := &prefixCommand{
+		Help:      help,
+		prefix:    prefix,
+		processor: processor,
+	}
+
+	c.commands = append(c.commands, command)
+}
