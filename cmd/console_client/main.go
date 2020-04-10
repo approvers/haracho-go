@@ -13,7 +13,5 @@ func main() {
 	command.RegisterCommands(collection)
 
 	c := console.Client{Scanner: bufio.NewScanner(os.Stdin)}
-	for i := 0; i < 5; i++ {
-		client.ExecuteCommand(c, collection)
-	}
+	client.ExecuteCommand(c, collection)
 }
