@@ -3,14 +3,13 @@ package pingpong
 import (
 	"haracho-go/internal/client"
 	"haracho-go/internal/client/test"
-	"haracho-go/internal/command"
 	"testing"
 )
 
 func TestPingPong(t *testing.T) {
 	collection := new(client.CommandCollection)
 	c := test.Client{Collection: collection}
-	command.RegisterCommands(collection)
+	Build(collection)
 
 	expect := "pong!"
 	res := c.Execute("!ping")
