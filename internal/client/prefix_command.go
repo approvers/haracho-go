@@ -8,6 +8,14 @@ type prefixCommand struct {
 	processor func(arg *arg.Arg, ctx CommandContext)
 }
 
+func NewPrefixCommand(help *HelpContext, prefix string, processor func(arg *arg.Arg, ctx CommandContext)) *prefixCommand {
+	return &prefixCommand{
+		Help:      help,
+		prefix:    prefix,
+		processor: processor,
+	}
+}
+
 func (c *prefixCommand) ShouldExecute(arg *arg.Arg) bool {
 	return arg.StartWith(c.prefix)
 }
