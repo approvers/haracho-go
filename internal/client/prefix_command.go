@@ -17,7 +17,7 @@ func NewPrefixCommand(help *HelpContext, prefix string, processor func(arg *arg.
 }
 
 func (c *prefixCommand) ShouldExecute(arg *arg.Arg) bool {
-	return arg.StartWith(c.prefix)
+	return arg.StartsWith(c.prefix)
 }
 
 func (c *prefixCommand) execute(arg *arg.Arg, ctx CommandContext) {

@@ -19,7 +19,7 @@ func (a *Arg) IsSameCommand(arg string) bool {
 	return a.commandName == arg
 }
 
-func (a *Arg) StartWith(prefix string) bool {
+func (a *Arg) StartsWith(prefix string) bool {
 	return strings.HasPrefix(a.commandName, prefix)
 }
 
