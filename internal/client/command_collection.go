@@ -23,9 +23,9 @@ func (c *CommandCollection) AddCommand(help *HelpContext, arg string, processor 
 
 func (c *CommandCollection) AddSubCommands(help *HelpContext, arg string, subCommands []CommandExecutable) {
 	command := &subCommand{
-		Help:     help,
-		arg:      arg,
-		commands: subCommands,
+		Help:        help,
+		commandName: arg,
+		commands:    subCommands,
 	}
 	c.commands = append(c.commands, command)
 }

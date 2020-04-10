@@ -3,13 +3,21 @@ package client
 import "haracho-go/internal/client/arg"
 
 type subCommand struct {
-	Help     *HelpContext
-	arg      string
-	commands []CommandExecutable
+	Help        *HelpContext
+	commandName string
+	commands    []CommandExecutable
+}
+
+func NewSubCommand(help *HelpContext, commandName string, commands []CommandExecutable) *subCommand {
+	return &subCommand{
+		Help:        help,
+		commandName: commandName,
+		commands:    commands,
+	}
 }
 
 func (c *subCommand) ShouldExecute(arg *arg.Arg) bool {
-	return arg.IsSameCommand(c.arg)
+	return arg.IsSameCommand(c.commandName)
 }
 
 func (c *subCommand) execute(arg *arg.Arg, ctx CommandContext) {
