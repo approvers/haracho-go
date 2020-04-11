@@ -6,13 +6,15 @@ import (
 )
 
 func Build(collection *client.CommandCollection) {
-	help := client.HelpContext{
+	help := &client.HelpContext{
 		Name:            "!ping",
 		Description:     "PingPong",
 		ArgsDescription: nil,
 	}
 
-	collection.AddCommand(&help, "!ping", func(arg *arg.Arg, ctx client.CommandContext) {
+	command := client.NewCommand(help, "!ping", func(arg *arg.Arg, ctx client.CommandContext) {
 		ctx.SendMessage("pong!")
 	})
+
+	collection.AddCommand(command)
 }

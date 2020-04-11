@@ -12,20 +12,6 @@ func (c CommandCollection) execute(arg *arg.Arg, ctx CommandContext) {
 	}
 }
 
-func (c *CommandCollection) AddCommand(help *HelpContext, arg string, processor func(arg *arg.Arg, ctx CommandContext)) {
-	command := &command{
-		Help:        help,
-		commandName: arg,
-		processor:   processor,
-	}
-	c.commands = append(c.commands, command)
-}
-
-func (c *CommandCollection) AddSubCommands(help *HelpContext, arg string, subCommands []CommandExecutable) {
-	command := &subCommand{
-		Help:        help,
-		commandName: arg,
-		commands:    subCommands,
-	}
+func (c *CommandCollection) AddCommand(command CommandExecutable) {
 	c.commands = append(c.commands, command)
 }
