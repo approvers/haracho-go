@@ -5,7 +5,7 @@ import "haracho-go/internal/logger"
 type CommandContext struct {
 	client  *Client
 	channel string
-	log     logger.Logger
+	log     *logger.BasicLogger
 }
 
 func (c *CommandContext) SendMessage(message string) {

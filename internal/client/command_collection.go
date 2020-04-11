@@ -15,3 +15,13 @@ func (c CommandCollection) execute(arg *arg.Arg, ctx CommandContext) {
 func (c *CommandCollection) AddCommand(command CommandExecutable) {
 	c.commands = append(c.commands, command)
 }
+
+func (c *CommandCollection) AddPrefixCommand(help *HelpContext, prefix string, processor func(arg *arg.Arg, ctx CommandContext)) {
+	command := &prefixCommand{
+		Help:      help,
+		prefix:    prefix,
+		processor: processor,
+	}
+
+	c.commands = append(c.commands, command)
+}

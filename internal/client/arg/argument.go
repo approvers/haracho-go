@@ -19,6 +19,10 @@ func (a *Arg) IsSameCommand(arg string) bool {
 	return a.commandName == arg
 }
 
+func (a *Arg) StartsWith(prefix string) bool {
+	return strings.HasPrefix(a.commandName, prefix)
+}
+
 func (a *Arg) Next() *Arg {
 	var args []string
 	if len(a.args) > 1 {
